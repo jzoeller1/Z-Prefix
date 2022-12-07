@@ -7,6 +7,7 @@ exports.seed = async function(knex) {
 
   await knex('item').del()
   await knex('item').insert([
-    {id: 1, item_name: 'phone', description: 'device_used_to_make calls', quantity: 15, member_id: 1}
+    {id: 1, item_name: 'phone', description: 'device used to make calls', quantity: 15, member_id: 1},
+    {id: 2, item_name: 'computer', description: 'standard gov computer', quantity: 9, member_id: 2}
   ]);
 };
