@@ -24,7 +24,6 @@
 
 // export default App;
 
-import React, { useState, useEffect } from 'react';
 
 // class App extends React.Component {
 //   constructor() {
@@ -57,25 +56,28 @@ import React, { useState, useEffect } from 'react';
 //   )
 // }
 
+import React, { useState, useEffect } from 'react';
+
 const Home = () => {
 
-  const [items, setItems] = useState([]);
+  const [item, setItem] = useState([]);
 
   useEffect(
     () => {
       async function getItems() {
         const response = await fetch('http://localhost:8084/items');
         const data = await response.json();
-        setItems(data);
+        setItem(data);
       }
       getItems();
     }, [])
 
   return (
     <div>
-      {items.map((item, index) => {
+      {item.map((item, index) => {
         return (
-          <div> key={index}
+          <div>
+            key={item.id}
             <h1>item: {item.item_name}</h1>
           </div>
         );
